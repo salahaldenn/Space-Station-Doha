@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوكب عطارد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #9c7a4b;
+            --text-color: #e6e6e6;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+        }
+        
+        .mercury-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .mercury-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .mercury-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(156, 122, 75, 0.5);
+        }
+        
+        .mercury-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .mercury-info h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: var(--text-color);
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .mercury-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>كوكب عطارد</h1>
+    </header>
+    
+    <div class="container">
+        <div class="mercury-content">
+            <div class="mercury-image">
+                <img src="c:\Users\albwz\Pictures\لقطة الشاشة 2025-04-24 142542.png" alt="كوكب عطارد">
+            </div>
+            
+            <div class="mercury-info">
+                <h2>معلومات عن كوكب عطارد</h2>
+                <p>
+                    عطارد هو الكوكب الأقرب إلى الشمس في نظامنا الشمسي وأصغر الكواكب الصخرية. يتميز عطارد بغلاف جوي رقيق جدًا مما يجعله عرضة لتقلبات حرارية شديدة بين الليل والنهار. سطح عطارد مليء بالفوهات الصدمية يشبه سطح القمر، ويعود ذلك لقربه من الشمس وعدم وجود غلاف جوي يحميه من النيازك.
+                </p>
+                <p>
+                    يدور عطارد حول الشمس في 88 يومًا أرضيًا فقط، بينما يدور حول محوره ببطء شديد، حيث يستغرق اليوم على عطارد حوالي 59 يومًا أرضيًا. بسبب هذا الدوران البطيء ومداره القصير، فإن سنة عطارد (دورة كاملة حول الشمس) تساوي تقريبًا 1.5 يوم من أيام عطارد!
+                </p>
+                <p>
+                    على الرغم من قربه من الشمس، فإن عطارد ليس الأكثر حرارة بين الكواكب (هذا اللقب ينتمي للزهرة). ومع ذلك، تصل درجات الحرارة على الجانب المواجه للشمس إلى 430 درجة مئوية، بينما تنخفض إلى -180 درجة مئوية على الجانب المظلم. لا يملك عطارد أي أقمار طبيعية أو حلقات حوله.
+                </p>
+                
+                <h2>خصائص كوكب عطارد</h2>
+                <ul>
+                    <li>متوسط البعد عن الشمس: 57.9 مليون كم</li>
+                    <li>مدة اليوم: 59 يوم أرضي</li>
+                    <li>مدة السنة: 88 يوم أرضي</li>
+                    <li>عدد الأقمار: 0</li>
+                    <li>درجة الحرارة: من -180°C إلى 430°C</li>
+                    <li>القطر: 4,880 كم (حوالي 38% من قطر الأرض)</li>
+                    <li>الجاذبية: 38% من جاذبية الأرض</li>
+                </ul>
+            </div>
+        </div>
+        
+        <a href="index.html" class="back-button">العودة إلى الصفحة الرئيسية</a>
+    </div>
+</body>
+</html>

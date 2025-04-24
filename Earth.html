@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوكب الأرض</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a1128;
+            --secondary-color: #1282a2;
+            --text-color: #e6e6e6;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background-color: rgba(10, 17, 40, 0.9);
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+        }
+        
+        .earth-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .earth-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .earth-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(18, 130, 162, 0.5);
+        }
+        
+        .earth-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .earth-info h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: var(--text-color);
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .earth-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>كوكب الأرض</h1>
+    </header>
+    
+    <div class="container">
+        <div class="earth-content">
+            <div class="earth-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="كوكب الأرض">
+            </div>
+            
+            <div class="earth-info">
+                <h2>معلومات عن كوكب الأرض</h2>
+                <p>
+                    الأرض هي الكوكب الثالث في ترتيب البعد عن الشمس، وتُعد الكوكب الوحيد المعروف حاليًا بوجود الحياة عليه. تشكل الأرض منذ حوالي 4.54 مليار سنة، وتغطي المياه حوالي 71% من سطحها، بينما الباقي يابسة. الغلاف الجوي للأرض يحتوي على الأوكسجين الضروري للتنفس، ويعمل على حماية الكوكب من الإشعاعات الضارة والنيازك.
+                </p>
+                <p>
+                    تدور الأرض حول الشمس مرة كل 365.25 يومًا، ما يُشكل السنة الشمسية، وتدور حول محورها كل 24 ساعة، مما يسبب تعاقب الليل والنهار. الجاذبية الأرضية تجعلها تحتفظ بغلافها الجوي، وتؤثر على القمر الذي يدور حولها، مسببًا ظاهرة المد والجزر.
+                </p>
+                <p>
+                    الأرض بها طبقات متعددة: القشرة، والوشاح، والنواة، كما أن نشاط الصفائح التكتونية فيها يسبب الزلازل والبراكين. عدد سكان الأرض يجاوز 8 مليار نسمة، موزعين على قارات ومحيطات، ويعيشون ضمن أنظمة بيئية متنوعة ومعقدة.
+                </p>
+                
+                <h2>خصائص كوكب الأرض</h2>
+                <ul>
+                    <li>متوسط البعد عن الشمس: 149.6 مليون كم</li>
+                    <li>مدة اليوم: 24 ساعة</li>
+                    <li>مدة السنة: 365.25 يوم</li>
+                    <li>عدد الأقمار: 1 (القمر)</li>
+                    <li>متوسط درجة الحرارة: 15°C</li>
+                </ul>
+            </div>
+        </div>
+        
+        <a href="index.html" class="back-button">العودة إلى الصفحة الرئيسية</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نبتون - العملاق الأزرق الغامض</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #050520;
+            --secondary-color: #00b4d8;
+            --accent-color: #0077b6;
+            --text-color: #e2f3fd;
+            --deep-blue: #03045e;
+            --ocean-blue: #023e8a;
+            --light-blue: #90e0ef;
+            --neon-blue: #00f5d4;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--deep-blue) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--ocean-blue) 0%, transparent 50%),
+                linear-gradient(to bottom, #050520, #000010);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--deep-blue), var(--ocean-blue));
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            border-bottom: 4px solid var(--neon-blue);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 30px 30px;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(0, 245, 212, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(0, 180, 216, 0.1) 0%, transparent 30%);
+            pointer-events: none;
+        }
+        
+        h1 {
+            color: var(--light-blue);
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(144, 224, 239, 0.7);
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 3px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--light-blue), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(144, 224, 239, 0.7);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(0, 245, 212, 0.9), 0 0 30px rgba(0, 180, 216, 0.6);
+            }
+        }
+        
+        .neptune-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: center;
+        }
+        
+        .neptune-image-container {
+            flex: 1;
+            min-width: 400px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .neptune-image {
+            width: 100%;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 180, 216, 0.4);
+            border: 2px solid rgba(0, 180, 216, 0.3);
+            transform-style: preserve-3d;
+            transition: transform 0.8s, box-shadow 0.8s;
+            position: relative;
+        }
+        
+        .neptune-image::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px solid var(--neon-blue);
+            border-radius: 30px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse 6s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.02); opacity: 0.5; }
+        }
+        
+        .neptune-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s, filter 1s;
+            filter: brightness(0.9) contrast(1.1) saturate(1.2);
+            transform: translateZ(20px);
+        }
+        
+        .neptune-image:hover {
+            transform: rotateY(5deg) rotateX(2deg);
+            box-shadow: 0 0 60px rgba(0, 180, 216, 0.6);
+        }
+        
+        .neptune-image:hover img {
+            transform: scale(1.05) translateZ(30px);
+            filter: brightness(1) contrast(1.2) saturate(1.3);
+        }
+        
+        .neptune-info {
+            flex: 1;
+            min-width: 400px;
+            background: linear-gradient(145deg, rgba(3, 4, 94, 0.9), rgba(2, 62, 138, 0.8));
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid var(--light-blue);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .neptune-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(0, 245, 212, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 30%);
+            z-index: -1;
+        }
+        
+        .neptune-info::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(to right, transparent 45%, rgba(0, 245, 212, 0.03) 50%, transparent 55%);
+            animation: shine 8s linear infinite;
+            transform: rotate(30deg);
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        .neptune-info h2 {
+            color: var(--neon-blue);
+            border-bottom: 3px solid var(--light-blue);
+            padding-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-top: 0;
+            position: relative;
+            text-shadow: 0 0 15px rgba(0, 245, 212, 0.4);
+            background: linear-gradient(to right, var(--light-blue), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .neptune-info p {
+            position: relative;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, var(--light-blue), var(--neon-blue));
+            color: var(--deep-blue);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 25px rgba(0, 245, 212, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .back-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, var(--neon-blue), var(--light-blue));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 245, 212, 0.5);
+            color: var(--deep-blue);
+        }
+        
+        .back-button:hover::before {
+            opacity: 1;
+        }
+        
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .fact-card {
+            background: rgba(0, 180, 216, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--neon-blue);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(144, 224, 239, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+        }
+        
+        .fact-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(0, 180, 216, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 180, 216, 0.3);
+            border-left: 5px solid var(--light-blue);
+        }
+        
+        .fact-card strong {
+            color: var(--light-blue);
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .moon-highlight {
+            color: var(--neon-blue);
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .moon-highlight::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-blue);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
+        }
+        
+        .moon-highlight:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .storm-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, transparent 0%, rgba(0, 180, 216, 0.05) 40%, transparent 70%),
+                radial-gradient(circle at 70% 60%, transparent 0%, rgba(0, 245, 212, 0.03) 30%, transparent 60%);
+            animation: stormMove 20s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes stormMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5%, 5%); }
+            50% { transform: translate(5%, -5%); }
+            75% { transform: translate(-5%, -5%); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .neptune-content {
+                flex-direction: column;
+            }
+            
+            .neptune-image-container, .neptune-info {
+                min-width: 100%;
+            }
+            
+            .neptune-image {
+                height: 500px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .neptune-info {
+                padding: 2rem;
+            }
+            
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .neptune-image {
+                height: 400px;
+            }
+            
+            .neptune-info {
+                padding: 1.5rem;
+            }
+            
+            .back-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="storm-effect"></div>
+    
+    <header>
+        <h1>كوكب نبتون</h1>
+    </header>
+    
+    <div class="container">
+        <div class="neptune-content">
+            <div class="neptune-image-container">
+                <div class="neptune-image">
+                    <img src="c:\Users\albwz\Downloads\670.webp" alt="كوكب نبتون الأزرق الساحر">
+                </div>
+            </div>
+            
+            <div class="neptune-info">
+                <h2>حارس الحدود الخارجية</h2>
+                <p>
+                    نبتون، العملاق الجليدي الأزرق، هو الكوكب الثامن والأبعد في نظامنا الشمسي، يحرس الحدود الخارجية لمملكتنا الشمسية مثل حارس مهيب. هذا الكوكب الغامض، الذي سمي على اسم إله البحر الروماني، يمتلك لونًا أزرقًا ساحرًا ناتجًا عن وجود غاز الميثان في غلافه الجوي، الذي يمتص الضوء الأحمر ويعكس الضوء الأزرق والأخضر بجمال أخاذ.
+                </p>
+                <p>
+                    ما يجعلك فريدًا حقًا يا نبتون هو رياحك العاتية التي تتجاوز سرعتها 2000 كم/ساعة، مما يجعلها الأسرع في النظام الشمسي بأكمله! هذه الرياح الجنونية تخلق عواصف ضخمة مثل "البقعة المظلمة الكبرى"، وهي إعصار هائل بحجم الأرض بالكامل. وعلى الرغم من بعدك الشاسع عن الشمس، فإن حرارتك الداخلية تجعلك أكثر دفئًا مما يجب، مما يزيد من غموضك.
+                </p>
+                <p>
+                    نظامك القمري يا نبتون لا يقل إثارة، حيث يضم 14 قمرًا رقصوا في مدارك. أشهرهم هو <span class="moon-highlight">تريتون</span>، هذا القمر الغريب الذي يدور في اتجاه معاكس لجميع الأقمار الأخرى، ويتميز ببراكين جليدية تنفجر نيتروجينًا سائلاً. يعتقد العلماء أن تريتون كان يومًا جسمًا من حزام كايبر قبل أن تقوم جاذبيتك الهائلة بأسره!
+                </p>
+                
+                <h2>كنوز نبتون الساحرة</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <strong>🔵 اللون الأزرق الساحر:</strong> بسبب الميثان في غلافه الجوي
+                    </div>
+                    <div class="fact-card">
+                        <strong>🌪️ الرياح الأسرع:</strong> تصل إلى 2100 كم/ساعة (أسرع من الصوت!)
+                    </div>
+                    <div class="fact-card">
+                        <strong>🕒 يوم قصير:</strong> 16.1 ساعة أرضية فقط
+                    </div>
+                    <div class="fact-card">
+                        <strong>📅 سنة طويلة:</strong> 165 سنة أرضية لدورة واحدة حول الشمس
+                    </div>
+                    <div class="fact-card">
+                        <strong>🌡️ البرودة القاسية:</strong> -214°م (من أبرد الكواكب)
+                    </div>
+                    <div class="fact-card">
+                        <strong>🌀 العواصف العملاقة:</strong> مثل البقعة المظلمة الكبرى
+                    </div>
+                    <div class="fact-card">
+                        <strong>🌑 الأقمار الغريبة:</strong> 14 قمرًا أشهرهم تريتون
+                    </div>
+                    <div class="fact-card">
+                        <strong>💍 الحلقات الخافتة:</strong> 5 حلقات رئيسية من الغبار الكوني
+                    </div>
+                </div>
+                
+                <a href="index.html" class="back-button">
+                    <span>رحلة إلى الكواكب الأخرى</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

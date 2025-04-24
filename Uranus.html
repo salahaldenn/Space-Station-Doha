@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوكب أورانوس</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a1a2a;
+            --secondary-color: #4fd0e7;
+            --accent-color: #3bb8d0;
+            --text-color: #f9f9f9;
+            --planet-color: #a6e6f0;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #1a3a5a 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #0a2a4a 0%, transparent 40%),
+                linear-gradient(to bottom, #0a1a2a, #0a0a1a);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(to right, #0a1a2a, #1a3a5a);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid var(--secondary-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(79, 208, 231, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        h1 {
+            color: var(--secondary-color);
+            font-size: 3.2rem;
+            text-shadow: 0 0 15px rgba(79, 208, 231, 0.7);
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+        }
+        
+        .uranus-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+        
+        .uranus-image {
+            flex: 1;
+            min-width: 350px;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 550px;
+            box-shadow: 0 0 30px rgba(79, 208, 231, 0.3);
+            border: 1px solid rgba(79, 208, 231, 0.2);
+        }
+        
+        .uranus-image::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--planet-color);
+            border-radius: 20px;
+            opacity: 0.3;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .uranus-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.7s, filter 0.7s;
+            filter: brightness(0.95) contrast(1.1) saturate(1.1);
+            transform-style: preserve-3d;
+            background-color: #000;
+        }
+        
+        .uranus-image:hover img {
+            transform: scale(1.03) rotateZ(0.5deg);
+            filter: brightness(1.05) contrast(1.2) saturate(1.2);
+        }
+        
+        .uranus-info {
+            flex: 1;
+            min-width: 350px;
+            background: rgba(10, 26, 42, 0.85);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .uranus-info::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 208, 231, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .uranus-info h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.7rem;
+            font-size: 2rem;
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 10px rgba(79, 208, 231, 0.3);
+        }
+        
+        .uranus-info p {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: #0a1a2a;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.4s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(79, 208, 231, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .back-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #6fdff5, #4fd0e7);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(79, 208, 231, 0.6);
+            color: #0a1a2a;
+        }
+        
+        .back-button:hover::before {
+            opacity: 1;
+        }
+        
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .fact-card {
+            background: rgba(79, 208, 231, 0.08);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.4s;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(79, 208, 231, 0.1);
+        }
+        
+        .fact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(79, 208, 231, 0.15);
+            box-shadow: 0 8px 20px rgba(79, 208, 231, 0.15);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .fact-card strong {
+            color: var(--secondary-color);
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .moon-highlight {
+            color: var(--secondary-color);
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(79, 208, 231, 0.5);
+        }
+        
+        .tilt-animation {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, var(--planet-color), transparent);
+            opacity: 0.1;
+            bottom: 0;
+            left: 0;
+            animation: tiltFlow 8s linear infinite;
+        }
+        
+        @keyframes tiltFlow {
+            0% { transform: translateX(-100%) rotate(0deg); }
+            100% { transform: translateX(100%) rotate(180deg); }
+        }
+        
+        @media (max-width: 900px) {
+            .uranus-content {
+                flex-direction: column;
+            }
+            
+            .uranus-image, .uranus-info {
+                min-width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .uranus-image {
+                height: 400px;
+            }
+            
+            .uranus-info {
+                padding: 1.5rem;
+            }
+            
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>كوكب أورانوس</h1>
+        <div class="tilt-animation"></div>
+    </header>
+    
+    <div class="container">
+        <div class="uranus-content">
+            <div class="uranus-image">
+                <img src="c:\Users\albwz\Downloads\shutterstock_1666194169.webp" alt="كوكب أورانوس المائل">
+            </div>
+            
+            <div class="uranus-info">
+                <h2>العملاق الجليدي المائل</h2>
+                <p>
+                    أورانوس، الكوكب السابع في نظامنا الشمسي، هو أحد أكثر الكواكب غرابة بفضل ميلانه المحوري الشديد الذي يصل إلى 98 درجة، مما يعني أنه يدور حول الشمس بشكل جانبي تقريبًا. هذا الميلان الغريب يعطي أورانوس فصولًا شديدة التطرف تستمر كل منها حوالي 20 سنة أرضية!
+                </p>
+                <p>
+                    يعتبر أورانوس عملاقًا جليديًا، يتكون معظمه من جليد الماء والميثان والأمونيا فوق نواة صخرية صغيرة. لونه الأزرق المخضر الفاتح يأتي من وجود غاز الميثان في غلافه الجوي الذي يمتص الضوء الأحمر ويعكس الضوء الأزرق والأخضر. الغلاف الجوي لأورانوس هو الأبرد في النظام الشمسي، بدرجات حرارة تصل إلى -224°م.
+                </p>
+                <p>
+                    يمتلك أورانوس نظام حلقات خافتة ونظامًا قمريًا مكونًا من 27 قمرًا معروفًا، سميت معظمها على شخصيات من أعمال شكسبير. أشهر أقماره هي <span class="moon-highlight">تيتانيا</span> و<span class="moon-highlight">أوبيرون</span> و<span class="moon-highlight">ميراندا</span> التي تتميز بسطحها الغريب المليء بالصدوع والمنحدرات.
+                </p>
+                
+                <h2>عجائب أورانوس</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <strong>الميل المحوري:</strong> 98 درجة (أكثر الكواكب ميلانًا)
+                    </div>
+                    <div class="fact-card">
+                        <strong>البعد عن الشمس:</strong> 2.9 مليار كم (19.8 وحدة فلكية)
+                    </div>
+                    <div class="fact-card">
+                        <strong>مدة اليوم:</strong> 17.2 ساعة أرضية
+                    </div>
+                    <div class="fact-card">
+                        <strong>مدة السنة:</strong> 84 سنة أرضية
+                    </div>
+                    <div class="fact-card">
+                        <strong>درجة الحرارة:</strong> -224°م (الأبرد بين الكواكب)
+                    </div>
+                    <div class="fact-card">
+                        <strong>التركيب:</strong> 83% هيدروجين، 15% هيليوم، 2% ميثان
+                    </div>
+                    <div class="fact-card">
+                        <strong>القطر:</strong> 50,724 كم (4 أضعاف قطر الأرض)
+                    </div>
+                    <div class="fact-card">
+                        <strong>الحلقات:</strong> 13 حلقة خافتة
+                    </div>
+                </div>
+                
+                <a href="index.html" class="back-button">استكشاف الكواكب الأخرى</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
